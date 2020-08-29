@@ -152,7 +152,7 @@ int SquareEqSolver (double a, double b, double c, double *x1, double *x2)
 	
 void SquareEqSolver_Test ()
 	{
-		// 	à = 0, b = 0  - depending in c is there infinite number of roots, or 0	
+		// 	a = 0, b = 0  - depending in c is there infinite number of roots, or 0	
 		//		   b != 0 - always only 1 solution x = -c/b
 				
 		//	a != 0:	D > 0 - always 2 roots							
