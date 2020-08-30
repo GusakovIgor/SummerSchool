@@ -12,26 +12,26 @@ void IsZero_test ();
 
 int main()
 	{
-	double a = 0,											// Coefficients
+	double a = 0,												// Coefficients
 		   b = 0, 
 		   c = 0;
-	printf("#Square Equation Solver\n");					// Introducing program
+	printf("#Square Equation Solver\n");						// Introducing program
 	printf("#By Gusakov Igor, 30.08.2020\n");
 	
-	printf("\n#Testing SquareEqSolver:");					// Unit-testing
+	printf("\n#Testing SquareEqSolver:");						// Unit-testing
 	SquareEqSolver_Test ();
 	printf("\n");
 	printf("\n#Testing IsZero:");
     IsZero_test ();
 	printf("\n\n");
 	
-    EquationMaker(&a, &b, &c);								// Printing equation
+    EquationMaker(&a, &b, &c);									// Printing equation
 	
-	double x1 = 0, x2 = 0;									// Roots
-	int NumRoots = SquareEqSolver(a, b, c, &x1, &x2);		// Getting number of roots for our equation
+	double x1 = 0, x2 = 0;										// Roots
+	int NumRoots = SquareEqSolver(a, b, c, &x1, &x2);			// Getting number of roots for our equation
 	
-	switch (NumRoots)										// Depending on NumRoots choosing
-		{													// how to output an answer
+	switch (NumRoots)											// Depending on NumRoots choosing
+		{														// how to output an answer
 		case 0:   printf("#And it has no roots :(");
 				  break;
 		case 1:   printf("#And it has one root: %g", x1);
@@ -51,15 +51,15 @@ int main()
 //!	Equation Maker Function:
 //!
 //! @param [out]  a  coefficient at x^2
-//!	@param [out]  b  coefficient at x^1
-//!	@param [out]  c  coefficient at x^0
+//! @param [out]  b  coefficient at x^1
+//! @param [out]  c  coefficient at x^0
 //!	
-//!	@return None
+//! @return None
 //!
 //! @description: This function works with user and print square equation:
-//!				  1.Work with user 
-//!				  2.Step by step printing equation using recieved coeffs
-//!				  3.Consider special case (all coeffs - 0) and print ending of equation
+//!			1.Work with user 
+//!			2.Step by step printing equation using recieved coeffs
+//!			3.Consider special case (all coeffs - 0) and print ending of equation
 //---------------------------------------------------------------------------------------
 
 
@@ -165,7 +165,7 @@ int SquareEqSolver (double a, double b, double c, double *x1, double *x2)
 	
 void SquareEqSolver_Test ()
 	{
-		// 	à = 0, b = 0  - depending on c there is infinite number of roots, or 0	
+		// 	a = 0, b = 0  - depending on c there is infinite number of roots, or 0	
 		//		   b != 0 - always only 1 solution x = -c/b
 				
 		//	a != 0:	D > 0 - always 2 roots							
