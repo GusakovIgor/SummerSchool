@@ -11,7 +11,7 @@ void SquareEqSolver_Test ();
 int main()
 	{
 	double a = 0, b = 0, c = 0;								// Coefficients
-	printf("#Square Equation Solver\n");					// Introducing program
+	printf("#Square Equation Solver\n");							// Introducing program
 	printf("#By Gusakov Igor, 30.08.2020\n");
 	
 	printf("\n#Testing:");									// Unit-testing
@@ -21,10 +21,10 @@ int main()
 	EquationMaker(&a, &b, &c);								// Printing equation
 	
 	double x1 = 0, x2 = 0;									// Roots
-	int NumRoots = SquareEqSolver(a, b, c, &x1, &x2);		// Getting number of roots for our equation
+	int NumRoots = SquareEqSolver(a, b, c, &x1, &x2);					// Getting number of roots for our equation
 	
-	switch (NumRoots)										// Depending on NumRoots choosing
-		{													// how to output an answer
+	switch (NumRoots)									// Depending on NumRoots choosing
+		{										// how to output an answer
 		case 0:   printf("#And it has no roots :(");
 				  break;
 		case 1:   printf("#And it has one root: %g", x1);
@@ -44,10 +44,10 @@ int main()
 //!	Equation Maker Function:
 //!
 //! @param [out]  a  coefficient at x^2
-//!	@param [out]  b  coefficient at x^1
-//!	@param [out]  c  coefficient at x^0
+//! @param [out]  b  coefficient at x^1
+//! @param [out]  c  coefficient at x^0
 //!	
-//!	@return None
+//! @return None
 //!
 //! @description: This function works with user and print square equation:
 //!				  1.Work with user 
@@ -58,7 +58,7 @@ int main()
 
 void EquationMaker (double *a, double *b, double *c)
 	{
-	assert (a != NULL); 							// Checking
+	assert (a != NULL); 					// Checking
 	assert (b != NULL);
 	assert (c != NULL);
 	assert (a != b); 
@@ -72,30 +72,30 @@ void EquationMaker (double *a, double *b, double *c)
 	
 	printf("\n#Your equation is: ");
 	
-	if (*a < 0)										// Working with a higher coeff. (put the correct sign and
-		printf("-");								//							     write down formula in correct form)
+	if (*a < 0)						// Working with a higher coeff. (put the correct sign and
+		printf("-");					//				 write down formula in correct form)
 	if (abs(*a) == 1)
 		printf("x^2 + ");
 	else if (*a != 0)
 		printf("%ux^2 + ", abs(*a));				
 	
 	
-	if (*b < 0)										// Just like with higher coeff. but prepearing for cases when
+	if (*b < 0)						// Just like with higher coeff. but prepearing for cases when
 		(*a == 0)? printf("-"): printf("\b\b- ");	// a = 0, and b < 0 or a != 0 and b < 0
 	if (abs(*b) == 1)
 		printf("x + ");
 	else if (*b != 0)
 		printf("%ux + ", abs(*b));
 		
-	if (*c < 0)										// Totally like with coeff. b
+	if (*c < 0)						// Totally like with coeff. b
 		(*b == 0)? printf("-"): printf("\b\b- ");
 	if (abs(*c) == 1)
 		printf("1");
 	else if (*c != 0)
 		printf("%u", abs(*c));
 	
-	if (*a == 0 && *b == 0 && *c == 0)				// For case, when all coeffs are 0
-		printf("0");								// (for we can see "0 = 0", not " = 0")
+	if (*a == 0 && *b == 0 && *c == 0)			// For case, when all coeffs are 0
+		printf("0");					// (for we can see "0 = 0", not " = 0")
 		
 	printf(" = 0\n\n");
 	}
@@ -105,12 +105,12 @@ void EquationMaker (double *a, double *b, double *c)
 //!	Square Equation Solver Function:
 //!
 //! @param [in]	 a  coefficient at x^2
-//!	@param [in]	 b  coefficient at x^1
-//!	@param [in]	 c  coefficient at x^0
-//!	@param [out] x1 pointer on 1-st root
+//! @param [in]	 b  coefficient at x^1
+//! @param [in]	 c  coefficient at x^0
+//! @param [out] x1 pointer on 1-st root
 //! @param [out] x2 pointer on 2-nd root
 //!
-//!	@return Number of roots for our equation
+//! @return Number of roots for our equation
 //!
 //! @description: This function solving equation:
 //!				  1.Finding an answer for special case (when first coeff. a is 0)
@@ -125,17 +125,17 @@ int SquareEqSolver (double a, double b, double c, double *x1, double *x2)
 		
 	double D = b*b - 4*a*c;					// Counting Discriminant
 	
-	if (a == 0)								// Checking case when equation is not square at all (a = 0)
+	if (a == 0)						// Checking case when equation is not square at all (a = 0)
 		if (b == 0)							
 			return (c == 0)? INF : 0;		// If all coeffs are 0, any number will be root,
-		else								// so we return special comstant INF (infinity)
+		else						// so we return special comstant INF (infinity)
 			{
 			*x1 = -c/b;
 			return 1;
 			}
 			
-	else if (D < 0)							// If equation is square (a != 0), counting roots
-		return 0;							// and finding number of them, depending on discriminant
+	else if (D < 0)						// If equation is square (a != 0), counting roots
+		return 0;					// and finding number of them, depending on discriminant
 	else if (D == 0)
 		{
 		*x1 = -b/(2*a);
@@ -153,11 +153,11 @@ int SquareEqSolver (double a, double b, double c, double *x1, double *x2)
 void SquareEqSolver_Test ()
 	{
 		// 	a = 0, b = 0  - depending in c is there infinite number of roots, or 0	
-		//		   b != 0 - always only 1 solution x = -c/b
+		//	       b != 0 - always only 1 solution x = -c/b
 				
-		//	a != 0:	D > 0 - always 2 roots							
-		//			D = 0 - 1 root								
-		//			D < 0 - 0 roots									
+		//     a != 0: D > 0 - always 2 roots							
+		//	       D = 0 - 1 root								
+		//	       D < 0 - 0 roots									
 		
 	double x1 = 0,
 		   x2 = 0;
@@ -165,14 +165,14 @@ void SquareEqSolver_Test ()
 		   exp = 0;
 	int number = 0;
 	
-	#define TEST_CHECK 											\
-	if (res == exp)												\
-		printf("\n Test %d passed", number);					\
-	else														\
-		{														\
-		printf("\n Test %d failed\n", number);					\
+	#define TEST_CHECK 						\
+	if (res == exp)							\
+		printf("\n Test %d passed", number);			\
+	else								\
+		{							\
+		printf("\n Test %d failed\n", number);			\
 		printf("  (expected %lg but recieved %lg)", exp, res);	\
-		}														\
+		}							\
 	
 	{
 	number = 1;
