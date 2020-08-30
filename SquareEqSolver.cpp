@@ -218,3 +218,10 @@ void SquareEqSolver_Test ()
 	
 	#undef TEST_CHECK
 	}
+
+.tab-size {
+  -webkit-tab-size: 4 !important;
+     -moz-tab-size: 4 !important;
+       -o-tab-size: 4 !important;
+          tab-size: 4 !important;
+}
